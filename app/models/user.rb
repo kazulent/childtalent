@@ -4,6 +4,9 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable, :confirmable
 
+  # association
+  has_many :tweets, ->{ order("created_at DESC")}
+
   def name
     "#{family_name} #{first_name}"
   end

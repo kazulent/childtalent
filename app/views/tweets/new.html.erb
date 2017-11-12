@@ -1,0 +1,18 @@
+<div class="form">
+  <div class="col-lg-12">
+
+    <%= form_for(@tweet) do |f| %>
+      <h3>
+        作品を投稿してみましょう
+      </h3>
+      <div class="form-group">
+        <%= f.text_area :text, placeholder: "作品について入力してください", cols:"30", rows:"10", autofocus:"true", class:"form-control" %>
+      </div>
+
+      <div class="form-group">
+        <%= f.submit "投稿する", class:"btn btn-primay withripple" %>
+      </div>
+
+    <% end %>
+  </div>
+</div>
