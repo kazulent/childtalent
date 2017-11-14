@@ -11,12 +11,12 @@ class TweetsController < ApplicationController
 
   # 作品の保存画面
   def create
-    @tweet = Tweet.create(text: create_params[:text], user_id: current_user.id)
+    @tweet = Tweet.create(text: create_params[:text], image: create_params[:image], user_id: current_user.id)
   end
 
   # ストロングパラメーター
   private
   def create_params
-    params.require(:tweet).permit(:text)
+    params.require(:tweet).permit(:text, :image)
   end
 end

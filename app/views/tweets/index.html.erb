@@ -1,5 +1,10 @@
 <p>Hello World!</p>
 
 <% @tweets.each do |tweet| %>
-  <%= tweet.text %>
+  <div class="tweet_text">
+    <%= tweet.text %>
+  </div>
+  <div class="tweet_image">
+    <%= image_tag tweet.image.url %>
+  </div>
 <% end %>

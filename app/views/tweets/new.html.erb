@@ -8,6 +8,9 @@
       <div class="form-group">
         <%= f.text_area :text, placeholder: "作品について入力してください", cols:"30", rows:"10", autofocus:"true", class:"form-control" %>
       </div>
+      <div class="form-group file">
+        <%= f.file_field :image, class: "form-control floating-label", placeholder: "画像アップロード" %>
+      </div>
 
       <div class="form-group">
         <%= f.submit "投稿する", class:"btn btn-primay withripple" %>
