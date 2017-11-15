@@ -1,10 +1,15 @@
-<p>Hello World!</p>
-
 <% @tweets.each do |tweet| %>
-  <div class="tweet_text">
-    <%= tweet.text %>
+
+  <div class="col-xs-3 col-md-3 block">
+    <!-- <div class="row row-eq-height"> -->
+    <div class="tweet_text">
+      <%= tweet.text %>
+    </div>
+    <div class="tweet_image">
+      <%= image_tag tweet.image.url %>
+    </div>
+
+    <!-- </div> -->
   </div>
-  <div class="tweet_image">
-    <%= image_tag tweet.image.url %>
-  </div>
+
 <% end %>
