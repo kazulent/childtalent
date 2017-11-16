@@ -14,6 +14,24 @@ class TweetsController < ApplicationController
     @tweet = Tweet.create(text: create_params[:text], image: create_params[:image], user_id: current_user.id)
   end
 
+  def destroy
+    tweet = Tweet.find(params[:id])
+    if tweet.user_id == current_user.id
+      tweet.destroy
+    end
+  end
+
+  def edit
+    @tweet = Tweet.find(params[:id])
+  end
+
+  def update
+    tweet = Tweet.find(params[:id])
+    if tweet.user_id == current_user.id
+      tweet.update(create_params)
+    end
+  end
+
   # ストロングパラメーター
   private
   def create_params
