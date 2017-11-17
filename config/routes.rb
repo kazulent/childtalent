@@ -8,4 +8,5 @@ Rails.application.routes.draw do
     resources :katachis, only: [:create, :destroy]
     resources :iros, only: [:create, :destroy]
   end
+  resources :abouts, only: [:index]
 end
