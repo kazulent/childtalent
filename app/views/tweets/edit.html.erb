@@ -1,0 +1,13 @@
+<div class="form">
+  <div class="col-lg-12">
+
+    <%= form_for(@tweet) do |f| %>
+      <h3>
+        編集する
+      </h3>
+      <%= f.text_field :text, placeholer: "作品について入力してください", cols:"30", rows:"10", autofocus:"true", class:"form-control" %>
+      <%= f.submit "送信する", class:"btn btn-primay withripple" %>
+
+    <% end %>
+  </div>
+</div>
