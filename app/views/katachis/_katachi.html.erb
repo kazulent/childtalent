@@ -1,0 +1,22 @@
+   <% if user_signed_in? %>
+      <% if tweet.katachi_user(current_user.id) %>
+        <%= button_to tweet_likes_path(katachi, tweet_id: tweet.id), method: :delete, id: "katachi-button", type:"button", class:"btn btn-info btn-block", remote: true do %>
+          イイ形<br/ >
+          <span>
+            <%= tweet.katachis_count %>
+          </span>
+        <% end %>
+      <% else %>
+        <%= button_to tweet_katachis_path(tweet), id: "katachi-button",  type:"button", class:"btn btn-default btn-block",remote: true do %>
+          イイ形<br/ >
+          <span>
+            <%= tweet.katachis_count %>
+          </span>
+        <% end %>
+      <% end %>
+    <% else %>
+      <button type="button" class="btn btn-default btn-block">イイ形<br/ >
+        <span>
+          <%= tweet.katachis_count %>
+        </span>
+    <% end %>

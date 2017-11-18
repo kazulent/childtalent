@@ -11,14 +11,46 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171114032910) do
+ActiveRecord::Schema.define(version: 20171118121743) do
 
-  create_table "tweets", force: :cascade do |t|
-    t.text     "text",       limit: 65535
+  create_table "iros", force: :cascade do |t|
+    t.integer  "user_id",    limit: 4
+    t.integer  "tweet_id",   limit: 4
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "katachis", force: :cascade do |t|
     t.integer  "user_id",    limit: 4
-    t.string   "image",      limit: 255
+    t.integer  "tweet_id",   limit: 4
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "likes", force: :cascade do |t|
+    t.integer  "user_id",    limit: 4
+    t.integer  "tweet_id",   limit: 4
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "pretties", force: :cascade do |t|
+    t.integer  "user_id",    limit: 4
+    t.integer  "tweet_id",   limit: 4
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "tweets", force: :cascade do |t|
+    t.text     "text",           limit: 65535
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "user_id",        limit: 4
+    t.string   "image",          limit: 255
+    t.integer  "likes_count",    limit: 4
+    t.integer  "pretties_count", limit: 4
+    t.integer  "katachis_count", limit: 4
+    t.integer  "iros_count",     limit: 4
   end
 
   create_table "users", force: :cascade do |t|

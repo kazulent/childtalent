@@ -2,23 +2,41 @@
 
   <div class="tweet col-xs-3 col-md-3 block">
     <!-- <div class="row row-eq-height"> -->
+    <div class="tweet_image">
+      <%= image_tag tweet.image.url %>
+    </div>
     <div class="tweet_text">
       <%= tweet.text %>
     </div>
-    <div class="tweet_image">
-      <%= image_tag tweet.image.url %>
+    <div class="btns">
+      <div class="like box1">
+        <%= render partial: 'likes/like', locals: { tweet: tweet, twees: @tweets, likes: @likes, like: @like } %>
+      </div>
+      <div class="pretty box1">
+        <%= render partial: 'pretties/pretty', locals: { tweet: tweet, tweets: @tweets, pretties: @pretties, pretty: @pretty } %>
+      </div>
+    </div>
+    <div class="btns">
+      <div class="katachi box2">
+      <%= render partial: 'katachis/katachi', locals: { tweet: tweet, tweets: @tweets, katachis: @katachis, katachi: @katachi } %>
+      </div>
+      <div class="iro box2">
+          <%= render partial: 'iros/iro', locals: { tweet: tweet, tweets: @tweets, iros: @iros, iro: @iro } %>
+        </div>
     </div>
 
     <!-- ユーザー自身が投稿した作品の場合に編集・削除・編集ができる-->
     <% if user_signed_in? && current_user.id == tweet.user_id %>
-      <ul class="more_list">
-        <li>
-          <%= link_to '編集', "/tweets/#{tweet.id}/edit", method: :get %>
-        </li>
-        <li>
-          <%= link_to '削除', "/tweets/#{tweet.id}", method: :delete %>
-        </li>
+    <div class="dropdown">
+      <button class="btn btn-link btn-xs btn-block dropdown-toggle" type="button" data-toggle="dropdown">
+        編集・削除
+        <span class="caret"></span>
+      </button>
+      <ul class="dropdown-menu" role="menu">
+        <li role="presentation"><%= link_to '編集', "/tweets/#{tweet.id}/edit", method: :get %></li>
+        <li role="presentation"><%= link_to '削除', "/tweets/#{tweet.id}", method: :delete %></li>
       </ul>
+    </div>
     <% end %>
 
     <!-- </div> -->

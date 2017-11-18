@@ -1,0 +1,2 @@
+module KatachisHelper
+end

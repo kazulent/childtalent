@@ -1,0 +1,22 @@
+   <% if user_signed_in? %>
+      <% if tweet.pretty_user(current_user.id) %>
+        <%= button_to tweet_pretties_path(pretty, tweet_id: tweet.id), method: :delete, id: "pretty-button", type:"button", class:"btn btn-danger btn-block", remote: true do %>
+          カワイイ<br/ >
+          <span>
+            <%= tweet.pretties_count %>
+          </span>
+        <% end %>
+      <% else %>
+        <%= button_to tweet_pretties_path(tweet), id: "pretty-button",  type:"button", class:"btn btn-default btn-block", remote: true do %>
+          カワイイ<br/ >
+          <span>
+            <%= tweet.pretties_count %>
+          </span>
+        <% end %>
+      <% end %>
+    <% else %>
+      <button type="button" class="btn btn-default btn-block">カワイイ<br/ >
+        <span>
+          <%= tweet.pretties_count %>
+        </span>
+    <% end %>

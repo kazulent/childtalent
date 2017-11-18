@@ -1,0 +1,22 @@
+   <% if user_signed_in? %>
+      <% if tweet.iro_user(current_user.id) %>
+        <%= button_to tweet_iros_path(iro, tweet_id: tweet.id), method: :delete, id: "iro-button", type:"button", class:"btn btn-success btn-block", remote: true do %>
+          イイ色<br/ >
+          <span>
+            <%= tweet.iros_count %>
+          </span>
+        <% end %>
+      <% else %>
+        <%= button_to tweet_iros_path(tweet), id: "iro-button", type:"button", class:"btn btn-default btn-block", remote: true do %>
+          イイ色<br/ >
+          <span>
+            <%= tweet.iros_count %>
+          </span>
+        <% end %>
+      <% end %>
+    <% else %>
+      <button type="button" class="btn btn-default btn-block">イイ色<br/ >
+        <span>
+          <%= tweet.iros_count %>
+        </span>
+    <% end %>

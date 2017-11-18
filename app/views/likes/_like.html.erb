@@ -1,0 +1,25 @@
+
+
+<% if user_signed_in? %>
+  <% if tweet.like_user(current_user.id) %>
+    <%= button_to tweet_likes_path(like, tweet_id: tweet.id), method: :delete, id: "like-button", type:"button", class:"btn btn-warning btn-block", remote: true do %>
+        ステキ<br/ >
+          <span>
+            <%= tweet.likes_count %>
+          </span>
+    <% end %>
+  <% else %>
+    <%= button_to tweet_likes_path(tweet), id: "like-button", type:"button", class:"btn btn-default btn-block", remote: true do %>
+      ステキ<br/ >
+        <span>
+          <%= tweet.likes_count %>
+        </span>
+    <% end %>
+  <% end %>
+<% else %>
+  <button type="button" class="btn btn-default btn-block">ステキ<br/ >
+    <span>
+      <%= tweet.likes_count %>
+    </span>
+  </button>
+<% end %>

@@ -4,6 +4,10 @@ class TweetsController < ApplicationController
     @tweets = Tweet.all
   end
 
+  def show
+    @tweet = Tweet.find(params[:id])
+  end
+
   # 作品の投稿画面
   def new
     @tweet = Tweet.new
