@@ -28,26 +28,24 @@
   padding: 15px 5px 5px 5px;
 }
 
-.tweet_image img {
-  display: block;
-  height: auto;
-  max-width: 100%;
-}
 
-/*.tweet_image {
-  width: 275px;
-  height: 275px;
+
+/* trimming */
+.trim {
+  width: 260px;  /* トリミングしたい幅 */
+  height: 260px;  /* トリミングしたい高さ */
   overflow: hidden;
   position: relative;
-  width: 100%;
+}
+.trim img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
 }
 
-.tweet_image img {
-  width: 100%;
-  margin: 0;
-  padding: 0;
-  vertical-align: bottom;
-}*/
 
 .about h4 {
   color: #696969;
@@ -68,7 +66,7 @@
   margin: 0;
   border: none;
   height: 40px;
-  width: 125px;
+  width: 130px;
 }
 
 

@@ -24,6 +24,7 @@ class ImageUploader < CarrierWave::Uploader::Base
 
   # Process files as they are uploaded:
   # process scale: [200, 300]
+  # process :resize_to_fill => [260, 520]
   #
   # def scale(width, height)
   #   # do something
@@ -31,7 +32,7 @@ class ImageUploader < CarrierWave::Uploader::Base
 
   # Create different versions of your uploaded files:
   # version :thumb do
-  #   process resize_to_fit: [50, 50]
+  #   process resize_to_limit: [500, 500]
   # end
 
   # Add a white list of extensions which are allowed to be uploaded.
@@ -45,5 +46,15 @@ class ImageUploader < CarrierWave::Uploader::Base
   # def filename
   #   "something.jpg" if original_filename
   # end
+
+  # 画像の横回転を防ぐ
+  process :fix_rotate
+  def fix_rotate
+    manipulate! do |img|
+      img = img.auto_orient
+      img = yield(img) if block_given?
+      img
+    end
+  end
 
 end

@@ -2,11 +2,16 @@
 
   <div class="tweet col-xs-3 col-md-3 block">
     <!-- <div class="row row-eq-height"> -->
-    <div class="tweet_image">
-      <%= image_tag tweet.image.url %>
+    <div class="trim">
+      <div class="tweet_image">
+        <%= image_tag tweet.image.url %>
+      </div>
     </div>
     <div class="tweet_text">
       <%= tweet.text %>
+    </div>
+    <div class="user">
+      <p>投稿者: <%= tweet.user.family_name %> <%= tweet.user.first_name %></p>
     </div>
     <div class="btns">
       <div class="like box1">

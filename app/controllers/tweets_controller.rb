@@ -1,7 +1,8 @@
 class TweetsController < ApplicationController
   # 作品の表示画面
   def index
-    @tweets = Tweet.all
+    # @tweets = Tweet.all.order("created_at DESC")
+    @tweets = Tweet.includes(:user).order("created_at DESC")
   end
 
   def show

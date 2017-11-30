@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users
   resources :users, only: [:show, :edit, :update]
-  root to: "top#index"
+  root to: "tweets#index"
   resources :tweets, only: [:index, :new, :create, :show, :edit, :update, :destroy] do
     resources :likes, only: [:create, :destroy]
     resources :pretties, only: [:create, :destroy]
