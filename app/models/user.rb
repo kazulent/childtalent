@@ -5,7 +5,7 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable, :confirmable
 
   # association
-  has_many :tweets, ->{ order("created_at DESC")}
+  has_many :tweets
 
   def name
     "#{family_name} #{first_name}"

@@ -1,6 +1,9 @@
 class UsersController < ApplicationController
   def show
+    # ユーザープロフィールの表示
     @user = User.find(params[:id])
+    # ユーザーの投稿作品を表示
+    @tweets = current_user.tweets.page(params[:page]).per(5).order("created_at DESC")
   end
 
   def edit

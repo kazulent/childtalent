@@ -1,10 +1,51 @@
-<div class="row form user_profile">
+<div class="profile2">
+<!-- <div class="row form user_profile"> -->
   <div class="col-lg-12">
-    <h2><%= @user.name %><span><%= @user.name_kana %></span></h2>
+    <p><%= @user.name %><span><%= @user.name_kana %></span></p>
     <% if current_user.id == @user.id %>
       <div class="profile_edit">
         <%= link_to "プロフィール編集", edit_user_path(current_user), {:class => "btn btn-primary withripple" }%>
       </div>
     <% end %>
   </div>
+<!-- </div> -->
 </div>
+
+<!-- 以下にユーザの作品を表示する -->
+<div class="col-lg-12">
+  <P><%= @user.name %>さんの投稿一覧</P>
+</div>
+
+<% @tweets.each do |tweet| %>
+  <div class="tweet col-xs-3 col-md-3 block">
+    <!-- <div class="row row-eq-height"> -->
+    <div class="trim">
+      <div class="tweet_image">
+        <%= image_tag tweet.image.url %>
+      </div>
+    </div>
+    <div class="tweet_text">
+      <%= tweet.text %>
+    </div>
+    <div class="user">
+      <p>投稿者: <%= tweet.user.family_name %> <%= tweet.user.first_name %></p>
+    </div>
+    <div class="btns">
+      <div class="like box1">
+        <%= render partial: 'likes/like', locals: { tweet: tweet, twees: @tweets, likes: @likes, like: @like } %>
+      </div>
+      <div class="pretty box1">
+        <%= render partial: 'pretties/pretty', locals: { tweet: tweet, tweets: @tweets, pretties: @pretties, pretty: @pretty } %>
+      </div>
+    </div>
+    <div class="btns">
+      <div class="katachi box2">
+      <%= render partial: 'katachis/katachi', locals: { tweet: tweet, tweets: @tweets, katachis: @katachis, katachi: @katachi } %>
+      </div>
+      <div class="iro box2">
+          <%= render partial: 'iros/iro', locals: { tweet: tweet, tweets: @tweets, iros: @iros, iro: @iro } %>
+        </div>
+    </div>
+  </div>
+<% end %>
+
