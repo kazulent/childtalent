@@ -57,3 +57,7 @@ gem 'bootstrap-material-design', '0.1.4'
 gem 'carrierwave'
 
 gem 'mini_magick'
+
+group :production do
+  gem 'rails_12factor'
+end
