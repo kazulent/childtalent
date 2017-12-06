@@ -58,7 +58,6 @@ gem 'carrierwave'
 
 gem 'mini_magick'
 
-gem 'ruby', '2.3.4'
 
 group :production do
   gem 'rails_12factor'
